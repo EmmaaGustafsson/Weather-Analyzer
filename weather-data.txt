@@ -1,0 +1,6 @@
+MONDAY 9 cloudy
+TUESDAY 13 sunny
+WEDNESDAY 15 sunny
+THURSDAY 7 rainy
+FRIDAY 9 cloudy
+SATURDAY 11 sunny
