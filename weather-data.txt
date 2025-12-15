@@ -4,3 +4,4 @@ WEDNESDAY 15 sunny
 THURSDAY 7 rainy
 FRIDAY 9 cloudy
 SATURDAY 11 sunny
+SUNDAY 10 cloudy
