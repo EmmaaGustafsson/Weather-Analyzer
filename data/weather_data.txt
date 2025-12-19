@@ -1,0 +1,7 @@
+MONDAY 5 cloudy
+TUESDAY 7 rainy
+WEDNESDAY 3 sunny
+THURSDAY 10 cloudy
+FRIDAY 12 sunny
+SATURDAY 8 rainy
+SUNDAY 4 cloudy
