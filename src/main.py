@@ -16,7 +16,7 @@ from pathlib import Path
 import sys
 
 
-# Ensure `src` directory is on sys.path so `weather`, `config`, etc. import correctly
+
 CURRENT_DIR = Path(__file__).resolve().parent
 if str(CURRENT_DIR) not in sys.path:
     sys.path.insert(0, str(CURRENT_DIR))
@@ -31,30 +31,30 @@ from utils.input_handler import get_weather_choice
 
 
 def main():
-    logger = get_logger("WeatherAnalyzer")
+    logger = get_logger("WeatherAnalyzer")  # Skapar en logger för programmet
 
     try:
         logger.info("Program started.")
 
-        analyzer = WeatherAnalyzer(DATA_FILE)
-        analyzer.load_data()
+        analyzer = WeatherAnalyzer(DATA_FILE)  # Skapar ett WeatherAnalyzer-objekt
+        analyzer.load_data()                   # Läser in data från fil
 
         print(f"Total days in file: {analyzer.number_of_days()}")
 
-        highest = analyzer.highest_temperature()
+        highest = analyzer.highest_temperature()  # Hämtar dagen som har högst temperatur
         if highest is None:
             print("No data available.")
         else:
             print(f"Highest temperature: {highest[1]}°C on {highest[0]}")
 
         try:
-            weather_choice = get_weather_choice()
+            weather_choice = get_weather_choice()   # Frågar användaren efter en vädertyp
         except ValueError as e:
             print(f"Invalid input: {e}")
             logger.error(f"Input error: {e}")
             return
 
-        filtered = analyzer.filter_by_weather(weather_choice)
+        filtered = analyzer.filter_by_weather(weather_choice)  # Filtrerar datan baserat på väder
 
         print(f"\nDays with '{weather_choice}':")
         if not filtered:
@@ -65,10 +65,10 @@ def main():
 
         logger.info("Program finished successfully.")
 
-    except Exception as e:
+    except Exception as e:   # Fångar oväntade fel
         logger.error(f"Error: {e}")
         print("An error occurred. Check logs.txt for details.")
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # Detta gör att main() bara körs när filen startas direkt
     main()

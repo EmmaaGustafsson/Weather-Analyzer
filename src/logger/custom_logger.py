@@ -3,15 +3,17 @@ from config.paths import LOG_FILE
 
 
 
-# Return a configured logger that writes to LOG_FILE
 def get_logger(name: str):
-    logger = logging.getLogger(name)
-    logger.setLevel(logging.INFO)
+    """
+    Creates and returns a logger that writes logs to a file.
+    """
+    logger = logging.getLogger(name) # Hämtar en logger med ett namn
+    logger.setLevel(logging.INFO)    # Sätter loggnivå (INFO = normal information)
     
-    if not logger.handlers:
-        handler = logging.FileHandler(LOG_FILE)
-        formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-        handler.setFormatter(formatter)
+    if not logger.handlers:          # Förhindrar att flera handlers läggs till av misstag
+        handler = logging.FileHandler(LOG_FILE)  # Skapar en fil där loggar kommer sparas
+        formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")  # Bestämmer hur loggarna ska se ut
+        handler.setFormatter(formatter) 
         logger.addHandler(handler)
         
     return logger

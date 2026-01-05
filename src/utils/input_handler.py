@@ -1,19 +1,18 @@
-VALID_WEATHER = {"sunny", "rainy", "cloudy"}
+VALID_WEATHER = {"sunny", "rainy", "cloudy"} # Tillåtna vädertyper
 
 
-"""Ask the user for a weather type and validate input.
+def get_weather_choice():
+    """Ask the user for a weather type and validate input.
 
 
 Raises ValueError if the input is invalid.
 """
-
-def get_weather_choice():
-    weather = input("Enter weather type to filter (sunny/rainy/cloudy): ").strip().lower()
+    weather = input("Enter weather type to filter (sunny/rainy/cloudy): ").strip().lower()  # Tar emot input från användaren
     
-    if not weather:
+    if not weather:   # Om använderen inte anger nåt och trycker enter
         raise ValueError("Column name cannot be empty.")
     
-    if weather not in VALID_WEATHER:
+    if weather not in VALID_WEATHER: # Om användaren anger icke tillåten input
         raise ValueError("Invalid weather type. Try: sunny, rainy, cloudy.")
     
     return weather
